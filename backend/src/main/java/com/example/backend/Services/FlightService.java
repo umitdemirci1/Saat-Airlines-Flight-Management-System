@@ -4,9 +4,12 @@ import com.example.backend.Entities.Flight;
 import com.example.backend.Entities.Route;
 import com.example.backend.Repositories.FlightRepository;
 import com.example.backend.Requests.FlightCreateRequest;
+import com.example.backend.Responses.FlightResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class FlightService {
@@ -18,8 +21,16 @@ public class FlightService {
         this.routeService = routeService;
     }
 
-    public List<Flight> getAllFlights() {
-        return flightRepository.findAll();
+    public List<FlightResponse> getAllFlights() {
+        List<Flight> list;
+        list = flightRepository.findAll();
+        return list.stream().map(f -> new FlightResponse(f)).collect(Collectors.toList());
+    }
+
+    public FlightResponse getOneFlight(UUID flightId) {
+        Flight flight;
+        flight = flightRepository.findById(flightId).orElse(null);
+        return new FlightResponse(flight);
     }
 
     public Flight saveFlight(FlightCreateRequest newFlightRequest) {

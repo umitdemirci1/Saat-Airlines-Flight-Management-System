@@ -2,11 +2,16 @@ package com.example.backend.Controllers;
 
 import com.example.backend.Entities.Flight;
 import com.example.backend.Requests.FlightCreateRequest;
+import com.example.backend.Responses.FlightResponse;
 import com.example.backend.Services.FlightService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/flights")
 public class FlightController {
@@ -17,9 +22,14 @@ public class FlightController {
         this.flightService = flightService;
     }
 
-    @GetMapping
-    public List<Flight> getAllFlights(){
+    @GetMapping()
+    public List<FlightResponse> getAllFlights(){
         return flightService.getAllFlights();
+    }
+
+    @GetMapping(value = "/{flightId}")
+    public FlightResponse getOneFlight(@PathVariable UUID flightId) {
+        return flightService.getOneFlight(flightId);
     }
 
     @PostMapping
