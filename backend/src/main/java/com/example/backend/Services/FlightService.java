@@ -47,6 +47,7 @@ public class FlightService {
         flightToSave.setArrivalTime(newFlightRequest.getArrivalTime());
         flightToSave.setCapacity(newFlightRequest.getCapacity());
         flightToSave.setPrice(newFlightRequest.getPrice());
+        flightToSave.setNotification(newFlightRequest.getNotification());
         flightToSave.setRoute(route);
         return flightRepository.save(flightToSave);
     }
