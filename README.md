@@ -11,3 +11,6 @@ Saaat Airlines Flight Management System solves that tracking of flights records 
 * After changing any data from flight, have to give notification about why that happened and system gives automatic last update timestamp.
 * Flight status easyly monitorized by SCHEDULED, DEPARTED, ARRIVED, CANCELLED, DELAYED statuses.
 * Automatic flight status update by checking current time.
+
+
+> How to install the projects are in their own sections. Please check it
