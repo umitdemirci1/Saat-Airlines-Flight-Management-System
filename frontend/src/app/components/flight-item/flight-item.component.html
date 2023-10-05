@@ -2,22 +2,33 @@
   <thead class="w-full h-12 bg-slate-700 text-white">
     <tr>
       <th
-        class="px-12 border-r border-slate-400"
+        class="px-12 border-r border-slate-400 text-center"
         [ngClass]="{ hidden: header === 'id' }"
         *ngFor="let header of tableHeaders"
       >
         {{ header }}
       </th>
+      <th class="px-12"></th>
     </tr>
   </thead>
   <tbody>
-    <tr class="odd:bg-white even:bg-slate-200" *ngFor="let flight of flights">
+    <tr
+      class="odd:bg-white even:bg-slate-200 hover:bg-slate-300"
+      *ngFor="let flight of flights"
+    >
       <td
         class="p-2 border-r border-slate-400"
         [ngClass]="{ hidden: header === 'id' }"
         *ngFor="let header of tableHeaders"
       >
         {{ getFlightPropertyValue(flight, header) }}
+      </td>
+      <td>
+        <mat-dialog-actions>
+          <button class="ml-4" (click)="showEditModal(flight)">
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </button>
+        </mat-dialog-actions>
       </td>
     </tr>
   </tbody>
