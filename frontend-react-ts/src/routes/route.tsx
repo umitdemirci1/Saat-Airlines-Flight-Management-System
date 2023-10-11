@@ -1,5 +1,5 @@
 import GlobalLayout from "../layouts/global-layout";
-import Dashboard from "../pages/dashboard/dasboard";
+import Dashboard from "../pages/dashboard/dashboard";
 import { createBrowserRouter } from "react-router-dom";
 import Flights from "../pages/flights/flights";
 
