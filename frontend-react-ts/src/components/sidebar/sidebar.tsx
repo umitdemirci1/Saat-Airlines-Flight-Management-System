@@ -25,7 +25,7 @@ const Sidebar = () => {
         <p className="mt-4 text-separetor text-xs pl-1">Operations</p>
         <div className="w-full flex flex-col border-t-2 border-gray-400">
           <NavLink
-            to={"/helo"}
+            to={"/flights"}
             className={({ isActive, isPending }) =>
               isPending
                 ? ""
@@ -37,7 +37,7 @@ const Sidebar = () => {
             Flights
           </NavLink>
           <NavLink
-            to={"/x"}
+            to={"/routesAndAirports"}
             className={({ isActive, isPending }) =>
               isPending
                 ? ""
