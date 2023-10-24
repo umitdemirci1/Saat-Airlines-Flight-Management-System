@@ -2,6 +2,7 @@ import GlobalLayout from "../layouts/global-layout";
 import Dashboard from "../pages/dashboard/dashboard";
 import { createBrowserRouter } from "react-router-dom";
 import Flights from "../pages/flights/flights";
+import Login from "../pages/auth/login/login";
 
 export const router = createBrowserRouter([
   {
@@ -13,8 +14,16 @@ export const router = createBrowserRouter([
       },
       {
         path: "/flights",
-        element: <Flights />
-      }
+        element: <Flights />,
+      },
     ],
+  },
+  {
+    element: <Login />,
+    path: "/login",
+  },
+  {
+    path: "*",
+    element: <GlobalLayout />,
   },
 ]);
